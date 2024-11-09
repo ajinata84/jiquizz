@@ -1,50 +1,130 @@
-# React + TypeScript + Vite
+# Jiquizz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React App for DOT Internship technical Test, built with React and Vite, deployed at [jiquizz.djie.cloud](https://jiquizz.djie.cloud/)
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built with React 18 and TypeScript
+- Modern development environment using Vite
+- Styled with TailwindCSS and SASS
+- Form handling with react-hook-form and Zod validation
+- Firebase integration
+- Theme support with next-themes
+- Toast notifications using sonner
+- shadcn UI components for accessible UI primitives
 
-## Expanding the ESLint configuration
+## 📋 Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (LTS version recommended)
+- npm or yarn package manager
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ajinata84/jiquizz.git
+cd jiquizz
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# or
+yarn install
 ```
+
+## ⚙️ Environment
+
+For firebase integration
+
+```jsx
+VITE_API_KEY = ""
+VITE_AUTH_DOMAIN = ""
+VITE_PROJECT_ID = ""
+VITE_STORAGE_BUCKET = ""
+VITE_MESSAGING_SENDER_ID = ""
+VITE_APP_ID = ""
+VITE_MEASUREMENT_ID = ""
+```
+
+## 🔧 Development
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+This will start the development server at `http://localhost:5173`
+
+## 🏗️ Build
+
+Create a production build:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## 🧪 Linting
+
+Run ESLint to check your code:
+
+```bash
+npm run lint
+# or
+yarn lint
+```
+
+## 📦 Tech Stack
+
+### Core
+
+- [React](https://reactjs.org/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- [Vite](https://vitejs.dev/) - Build tool and development server
+
+### Styling
+
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [SASS](https://sass-lang.com/) - CSS preprocessor
+- [class-variance-authority](https://cva.style/docs) - Component variant management
+- [tailwind-merge](https://github.com/dcastil/tailwind-merge) - Merge Tailwind CSS classes
+
+### UI Components
+
+- [shadcn ui](https://ui.shadcn.com/) - Unstyled, accessible components
+- [Lucide React](https://lucide.dev/) - Icon set
+
+### Forms and Validation
+
+- [React Hook Form](https://react-hook-form.com/) - Form handling
+- [Zod](https://zod.dev/) - Schema validation
+
+### Routing and State
+
+- [React Router](https://reactrouter.com/) - Client-side routing
+
+### Backend Integration
+
+- [Firebase](https://firebase.google.com/) - Backend services
+- [Axios](https://axios-http.com/) - HTTP client
+
+### Developer Tools
+
+- [ESLint](https://eslint.org/) - Code linting
+- [PostCSS](https://postcss.org/) - CSS transformations
+- [Autoprefixer](https://github.com/postcss/autoprefixer) - CSS vendor prefixing
