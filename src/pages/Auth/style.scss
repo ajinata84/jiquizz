@@ -1,0 +1,52 @@
+.auth-container {
+  height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 6em;
+    text-align: center;
+    color: var(--maincol);
+  }
+  form {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    .form-field {
+      text-align: start;
+      margin: 10px 0px;
+
+      .form-label {
+        font-size: 0.8em;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .form-input {
+        border-radius: 999px;
+      }
+    }
+
+    .submit-button {
+      margin: 0 auto;
+      background-color: var(--maincol);
+      &:hover {
+        background-color: var(--seccol);
+      }
+      border-radius: 999px;
+    }
+
+    .changetype-row {
+      text-align: center;
+      font-size: 0.8em;
+      margin: 10px 0;
+      button {
+        font-size: 0.8em;
+        color: #666666;
+      }
+    }
+  }
+}
