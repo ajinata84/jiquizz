@@ -83,9 +83,9 @@ export default function Home() {
     if (type) url += `&type=${type}`;
 
     try {
+      setLoading(true);
       const response = await axios.get(url);
       const data = response.data;
-      setLoading(true);
 
       if (data.response_code === 0) {
         const quizData = {
@@ -100,13 +100,17 @@ export default function Home() {
         localStorage.setItem("unfinishedQuiz", JSON.stringify(quizData));
         navigate("/quiz");
       } else {
-        toast("Error fetching questions. Please try different settings.");
+        toast("Error fetching questions. Please try different settings.", {
+          position: "top-center",
+        });
         setLoading(false);
       }
     } catch (error) {
       setLoading(false);
       console.error("Error fetching questions:", error);
-      toast("Error fetching questions. Please try again.");
+      toast("Error fetching questions. Please try again.", {
+        position: "top-center",
+      });
     }
   };
 
@@ -118,7 +122,7 @@ export default function Home() {
     <div>
       <div>
         <h1 className="text-4xl font-medium flex flex-row">
-          <span className="ml-auto">Welcome,</span>
+          <span className="ml-auto">Welcome</span>
           <div className="flex flex-col mr-auto ml-2">
             <span className="font-semibold text-maincol">
               {user?.email?.split("@")[0]}
@@ -155,8 +159,8 @@ export default function Home() {
         </div>
       )}
       <h2 className="my-2 mb-5">Generate your quizzes below:</h2>
-      <div className="grid grid-cols-2 gap-6 sm:w-full lg:w-1/2 mx-auto">
-        <div className="h-[150px] lg:h-[250px] bg-background shadow-sm justify-center flex flex-col items-center font-semibold border-[#70A1D7] border-4 rounded-[62px]">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:w-full lg:w-1/2 mx-auto">
+        <div className="h-[150px] lg:h-[250px] bg-background shadow-sm justify-center flex flex-col items-center font-semibold border-[#70A1D7] border-4 rounded-[62px] py-2">
           <Button
             variant="outline"
             className="w-1/2 rounded-full mb-2"
@@ -261,9 +265,7 @@ export default function Home() {
                 setQuizSettings((prev) => ({ ...prev, type: value }))
               }
             >
-              <DropdownMenuRadioItem value="">
-                Any
-              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="">Any</DropdownMenuRadioItem>
               <DropdownMenuRadioItem value="multiple">
                 Multiple Choice
               </DropdownMenuRadioItem>
@@ -292,6 +294,7 @@ export default function Home() {
           className="border-maincol border-2 rounded-full"
           variant="outline"
           onClick={handleStartQuiz}
+          disabled={loading}
         >
           {loading ? "Loading..." : "Go!"}
         </Button>

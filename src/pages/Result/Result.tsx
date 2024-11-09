@@ -30,12 +30,18 @@ type QuizResults = {
   };
 };
 
-function QuestionResult({ answer, index }: { answer: QuizAnswer; index: number }) {
+function QuestionResult({
+  answer,
+  index,
+}: {
+  answer: QuizAnswer;
+  index: number;
+}) {
   const isCorrect = answer.userAnswer === answer.question.correct_answer;
 
   return (
     <div
-      className={`border-4 bg-background shadow-sm rounded-[48px] w-1/2 mx-auto mt-4 py-6 px-4 ${
+      className={`border-4 bg-background shadow-sm rounded-[48px] w-full mx-auto mt-4 py-6 px-4 ${
         isCorrect ? "border-second" : "border-fourth"
       }`}
     >
@@ -97,13 +103,16 @@ export default function Result() {
     <div>
       <h1 className="text-3xl font-semibold">Your Result</h1>
       <Link to="/">
-        <Button variant="link" className="text-maincol">Back To Home</Button>
+        <Button variant="link" className="text-maincol">
+          Back To Home
+        </Button>
       </Link>
       <h1 className="text-2xl">
-        <span className="text-[#006A67] font-bold">{correctAnswers}</span> out of{" "}
-        <span className="text-maincol font-bold">{totalQuestions}</span> Correct
-      </h1>
-      <div className="mt-8">
+        <span className="text-[#006A67] font-bold">{correctAnswers}</span> out
+        of <span className="text-maincol font-bold">{totalQuestions}</span>{" "}
+        Correct
+      </h1> 
+      <div className="mt-8 grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
         {results.answers.map((answer, index) => (
           <QuestionResult key={index} answer={answer} index={index} />
         ))}
